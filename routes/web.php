@@ -17,6 +17,8 @@ Route::get('/staff/login',[StaffController::class,'login'])->name('staff.login')
 Route::post('/staff/loginReq',[StaffController::class,'loginReq'])->name('staff.loginReq');
 Route::get('/staff/register',[StaffController::class,'register'])->name('staff.register');
 Route::get('/staff/dashboard',[StaffController::class,'dashboard'])->name('staff.dashboard');
+Route::get('/staff/teacher',[StaffController::class,'teacher'])->name('staff.teacher');
+Route::get('/staff/student',[StaffController::class,'student'])->name('staff.student');
 Route::resource('/staff',StaffController::class);
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 Route::post('/admin/loginReq',[AdminController::class,'loginReq'])->name('admin.loginReq');

@@ -27,10 +27,10 @@
 
     <div class="sidebar">
         <ul>
-            <li><a href="#">Teacher wise</a></li>
-            <li><a href="#">Student wise</a></li>
-            <li><a href="#">Total Complaints</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="{{ route('staff.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('staff.teacher') }}">Teacher wise</a></li>
+            <li><a href="{{ route('staff.student') }}">Student wise</a></li>
+            <li><a href="{{route('staff.login')}}">Logout</a></li>
         </ul>
     </div>
     @yield('content')

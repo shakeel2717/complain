@@ -61,7 +61,7 @@
                             <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                         </div>
                         <div class="col-10">
-                            <h2 class="card-title">X</h2>
+                            <h2 class="card-title">{{$complaints->where('status','Replied')->count()}}</h2>
                             <h4 class="card-title">Complaints with Replies</h4>
                         </div>
                     </div>

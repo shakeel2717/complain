@@ -44,6 +44,21 @@ class StaffController extends Controller
         ]);
     }
 
+    public function teacher()
+    {
+        return view('staff.teacher',[
+            'complaints' => complaint::where('subject','Teacher')->get(),
+        ]);
+    }
+
+
+    public function student()
+    {
+        return view('staff.student',[
+            'complaints' => complaint::get(),
+        ]);
+    }
+
     public function register()
     {
         return view('staff.register');
