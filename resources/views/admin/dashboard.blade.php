@@ -28,7 +28,7 @@
     <div class="sidebar">
         <ul>
             <li><a href="#">Officers wise</a></li>
-            <li><a href="#">Create Student</a></li>
+            <li><a href="{{ route('admin.createStudent') }}">Create Student</a></li>
             <li><a href="#">Teacher Wise</a></li>
             <li><a href="#">Total Complaints</a></li>
             <li><a href="#">Logout</a></li>

@@ -20,16 +20,21 @@ class StudentController extends Controller
 
     public function loginReq(Request $request)
     {
-        $query = student::where('email',$request->input('email'))->where('password',$request->input('password'))->first();
+        $query = student::where('email',$request->input('email'))->where('password',$request->input('password'))->where('status',1)->first();
         if($query == "") {
             return "Login Failed";
         }
-        return view('student.dashboard');
+        return redirect()->route('student.dashboard');
     }
 
     public function register()
     {
         return view('student.register');
+    }
+
+    public function studentDashboard()
+    {
+        return view('student.dashboard');
     }
 
 
@@ -59,18 +64,15 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $task = new student();
-        $task->fname = $request->input('fname');
-        $task->lname = $request->input('lname');
-        $task->username = $request->input('username');
-        $task->password = $request->input('password');
-        $task->email = $request->input('email');
-        $task->mobile = $request->input('mobile');
-        $task->address = $request->input('address');
-        $task->dob = $request->input('dob');
-        $task->save();
+        // query 
+        $query = student::where('fname',$request->input('fname'))->where('lname',$request->input('lname'))->where('email',$request->input('email'))->first();
+        if($query == "") {
+            return "No Record Found";
+        }
+        $query->status = 1;
+        $query->save();
         // return redirect()->back()->withErrors('Wrong Password, Please try again');
-        return redirect()->route('student.login')->with('message', 'Task Completed Successfully');
+        return redirect()->back()->with('message', 'Student Registered Succesfully');
     }
 
     /**

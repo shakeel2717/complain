@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\admin;
+use App\Models\student;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -24,7 +25,7 @@ class AdminController extends Controller
         if($query == "") {
             return "Login Failed";
         }
-        return view('admin.dashboard');
+        return redirect()->route('admin.index');
     }
 
     public function register()
@@ -32,10 +33,16 @@ class AdminController extends Controller
         return view('admin.register');
     }
 
+
+    public function createStudent()
+    {
+        return view('admin.createStudent');
+    }
+
     public function index()
     {
         $admin = admin::all();
-        return view('admin.index',[
+        return view('admin.dashboard',[
             'admins' => $admin,
         ]);
     }
@@ -63,6 +70,24 @@ class AdminController extends Controller
         $task->email = $request->input('email');
         $task->save();
         return redirect()->route('admin.login')->with('message', 'Task Completed Successfully');
+    }
+
+
+    public function studentStore(Request $request)
+    {
+        $task = new student();
+        $task->fname = $request->input('fname');
+        $task->lname = $request->input('lname');
+        $task->username = $request->input('username');
+        $task->password = $request->input('password');
+        $task->email = $request->input('email');
+        $task->mobile = $request->input('mobile');
+        $task->address = $request->input('address');
+        $task->dob = $request->input('dob');
+        $task->status = 0;
+        $task->save();
+        // return redirect()->back()->withErrors('Wrong Password, Please try again');
+        return redirect()->back()->with('message', 'Task Completed Successfully');
     }
 
     /**

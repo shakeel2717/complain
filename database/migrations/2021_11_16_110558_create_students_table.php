@@ -23,6 +23,7 @@ class CreateStudentsTable extends Migration
             $table->string('mobile');
             $table->string('address');
             $table->string('dob');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
