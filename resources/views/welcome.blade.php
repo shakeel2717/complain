@@ -22,9 +22,9 @@
         </div>
         <div class="navigations">
             <ul class="nav-items">
-                <li><a href="admin/login.html" class="btn btn-outline-dark">Admin</a></li>
-                <li><a href="staff/login.html" class="btn btn-outline-dark">Staff Panel</a></li>
-                <li><a href="student/login.html" class="btn btn-outline-dark">Login</a></li>
+                <li><a href="{{ route('admin.login') }}" class="btn btn-outline-dark">Admin</a></li>
+                <li><a href="{{ route('staff.login') }}" class="btn btn-outline-dark">Staff Panel</a></li>
+                <li><a href="{{ route('student.login') }}" class="btn btn-outline-dark">Login</a></li>
                 <li><a href="#" class="btn btn-dark">Contact</a></li>
             </ul>
         </div>
@@ -32,8 +32,8 @@
     <div class="parrent">
         <h2>GPGC KHAR BAJAUR</h2>
         <div class="buttons mt-4">
-            <a href="student/login.html" class="btn btn-lg btn-primary w-100">Login</a>
-            <a href="student/register.html" class="btn btn-lg btn-primary w-100">Create Account</a>
+            <a href="{{ route('student.login') }}" class="btn btn-lg btn-primary w-100">Login</a>
+            <a href="{{ route('student.register') }}" class="btn btn-lg btn-primary w-100">Create Account</a>
         </div>
     </div>
     <div class="footer">

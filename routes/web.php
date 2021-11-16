@@ -1,18 +1,21 @@
 <?php
 
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/','welcome');
+Route::get('/student/login',[StudentController::class,'login'])->name('student.login');
+Route::post('/student/loginReq',[StudentController::class,'loginReq'])->name('student.loginReq');
+Route::get('/student/register',[StudentController::class,'register'])->name('student.register');
+Route::resource('/student',StudentController::class);
+Route::get('/staff/login',[StaffController::class,'login'])->name('staff.login');
+Route::post('/staff/loginReq',[StaffController::class,'loginReq'])->name('staff.loginReq');
+Route::get('/staff/register',[StaffController::class,'register'])->name('staff.register');
+Route::resource('/staff',StaffController::class);
+Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
+Route::post('/admin/loginReq',[AdminController::class,'loginReq'])->name('admin.loginReq');
+Route::get('/admin/register',[AdminController::class,'register'])->name('admin.register');
+Route::resource('admin', AdminController::class);
