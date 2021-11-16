@@ -1,38 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complaint Management System</title>
-    <!-- Bootstrap Ka Link -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <!-- Font Awsome ka Link -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <!-- Hamri CSS ki File -->
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-
-<body style="background-image: none;">
-    <div class="nav">
-        <div class="logo">
-            <h2>Staff Dashboard</h2>
-        </div>
-        <div class="navigations">
-
-        </div>
-    </div>
-
-    <div class="sidebar">
-        <ul>
-            <li><a href="#">Teacher wise</a></li>
-            <li><a href="#">Student wise</a></li>
-            <li><a href="#">Total Complaints</a></li>
-            <li><a href="#">Logout</a></li>
-        </ul>
-    </div>
+@extends('staff.layout.app')
+@section('content')
     <div class="content">
         <div class="row mt-2">
             <div class="col-12">
@@ -49,7 +16,7 @@
                                 <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                             </div>
                             <div class="col-10">
-                                <h2 class="card-title">12</h2>
+                                <h2 class="card-title">{{$complaints->count()}}</h2>
                                 <h4 class="card-title">Total Complaints</h4>
                             </div>
                         </div>
@@ -64,7 +31,7 @@
                                 <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                             </div>
                             <div class="col-10">
-                                <h2 class="card-title">12</h2>
+                                <h2 class="card-title">{{$complaints->where('subject','Teacher')->count()}}</h2>
                                 <h4 class="card-title">Complaints on Teacher</h4>
                             </div>
                         </div>
@@ -79,7 +46,7 @@
                                 <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                             </div>
                             <div class="col-10">
-                                <h2 class="card-title">12</h2>
+                                <h2 class="card-title">{{$complaints->count()}}</h2>
                                 <h4 class="card-title">Student Wise</h4>
                             </div>
                         </div>
@@ -94,8 +61,8 @@
                                 <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                             </div>
                             <div class="col-10">
-                                <h2 class="card-title">12</h2>
-                                <h4 class="card-title">Complaints Details</h4>
+                                <h2 class="card-title">X</h2>
+                                <h4 class="card-title">Replied Complaints</h4>
                             </div>
                         </div>
                     </div>
@@ -109,7 +76,7 @@
                                 <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                             </div>
                             <div class="col-10">
-                                <h2 class="card-title">12</h2>
+                                <h2 class="card-title">X</h2>
                                 <h4 class="card-title">Level Complaints</h4>
                             </div>
                         </div>
@@ -124,7 +91,7 @@
                                 <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                             </div>
                             <div class="col-10">
-                                <h2 class="card-title">12</h2>
+                                <h2 class="card-title">{{$students->where('status',1)->count()}}</h2>
                                 <h4 class="card-title">Register Student</h4>
                             </div>
                         </div>
@@ -139,7 +106,7 @@
                                 <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                             </div>
                             <div class="col-10">
-                                <h2 class="card-title">12</h2>
+                                <h2 class="card-title">X</h2>
                                 <h4 class="card-title">Dep Wise Students</h4>
                             </div>
                         </div>
@@ -154,7 +121,7 @@
                                 <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                             </div>
                             <div class="col-10">
-                                <h2 class="card-title">12</h2>
+                                <h2 class="card-title">X</h2>
                                 <h4 class="card-title">Total Replies</h4>
                             </div>
                         </div>
@@ -163,10 +130,4 @@
             </div>
         </div>
     </div>
-    <div class="footer">
-        <p>2021 Govt Post Graduate College Khar Bajaur</p>
-    </div>
-
-</body>
-
-</html>
+@endsection

@@ -18,7 +18,7 @@
 <body style="background-image: none;">
     <div class="nav">
         <div class="logo">
-            <h2>Admin Dashboard</h2>
+            <h2>Staff Dashboard</h2>
         </div>
         <div class="navigations">
 
@@ -27,11 +27,9 @@
 
     <div class="sidebar">
         <ul>
-            <li><a href="{{ route('admin.index') }}">Dashboard</a></li>
-            <li><a href="#">Officers wise</a></li>
-            <li><a href="{{ route('admin.createStudent') }}">Create Student</a></li>
-            <li><a href="#">Teacher Wise</a></li>
-            <li><a href="{{route('admin.totalComplaints')}}">Total Complaints</a></li>
+            <li><a href="#">Teacher wise</a></li>
+            <li><a href="#">Student wise</a></li>
+            <li><a href="#">Total Complaints</a></li>
             <li><a href="#">Logout</a></li>
         </ul>
     </div>

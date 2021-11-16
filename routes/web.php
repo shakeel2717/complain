@@ -16,12 +16,17 @@ Route::resource('/student',StudentController::class);
 Route::get('/staff/login',[StaffController::class,'login'])->name('staff.login');
 Route::post('/staff/loginReq',[StaffController::class,'loginReq'])->name('staff.loginReq');
 Route::get('/staff/register',[StaffController::class,'register'])->name('staff.register');
+Route::get('/staff/dashboard',[StaffController::class,'dashboard'])->name('staff.dashboard');
 Route::resource('/staff',StaffController::class);
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 Route::post('/admin/loginReq',[AdminController::class,'loginReq'])->name('admin.loginReq');
 Route::get('/admin/register',[AdminController::class,'register'])->name('admin.register');
 Route::get('/admin/createStudent',[AdminController::class,'createStudent'])->name('admin.createStudent');
 Route::post('/admin/createStudent',[AdminController::class,'studentStore'])->name('admin.studentStore');
-Route::resource('/complaint',ComplaintController::class);
+Route::get('/admin/totalComplaints',[AdminController::class,'totalComplaints'])->name('admin.totalComplaints');
+Route::get('/admin/totalComplaints/reject/{id}',[AdminController::class,'totalComplaintsRej'])->name('admin.totalComplaintsRej');
+Route::get('/admin/totalComplaints/delete/{id}',[AdminController::class,'totalComplaintsDel'])->name('admin.totalComplaintsDel');
+Route::get('/admin/totalComplaints/fixed/{id}',[AdminController::class,'totalComplaintsFix'])->name('admin.totalComplaintsFix');
 
 Route::resource('admin', AdminController::class);
+Route::resource('/complaint',ComplaintController::class);

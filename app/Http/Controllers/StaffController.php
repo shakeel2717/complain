@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\complaint;
 use App\Models\staff;
+use App\Models\student;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -23,11 +25,21 @@ class StaffController extends Controller
 
     public function loginReq(Request $request)
     {
-        $query = staff::where('email',$request->input('email'))->where('password',$request->input('password'))->first();
-        if($query == "") {
+        $query = staff::where('email', $request->input('email'))->where('password', $request->input('password'))->first();
+        if ($query == "") {
             return "Login Failed";
         }
-        return view('staff.dashboard');
+        return redirect()->route('staff.dashboard');
+    }
+
+    public function dashboard()
+    {
+        $complaints = complaint::get();
+        $students = student::get();
+        return view('staff.dashboard', [
+            'complaints' => $complaints,
+            'students' => $students,
+        ]);
     }
 
     public function register()
@@ -39,7 +51,7 @@ class StaffController extends Controller
     public function index()
     {
         $staff = staff::all();
-        return view('staff.index',[
+        return view('staff.index', [
             'staffs' => $staff,
         ]);
     }
@@ -84,7 +96,7 @@ class StaffController extends Controller
      */
     public function show(staff $staff)
     {
-        return view('staff.index',[
+        return view('staff.index', [
             'staff' => $staff,
         ]);
     }

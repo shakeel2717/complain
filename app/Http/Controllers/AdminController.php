@@ -50,6 +50,41 @@ class AdminController extends Controller
         ]);
     }
 
+    public function totalComplaintsRej($id)
+    {
+        $task = complaint::find($id);
+        $task->status = "Rejected";
+        $task->save();
+        return redirect()->back();
+    }
+
+
+    public function totalComplaintsDel($id)
+    {
+        $task = complaint::find($id);
+        $task->status = "Deleted";
+        $task->save();
+        return redirect()->back();
+    }
+
+    public function totalComplaintsFix($id)
+    {
+        $task = complaint::find($id);
+        $task->status = "Completed";
+        $task->save();
+        return redirect()->back();
+    }
+
+    
+    public function totalComplaints()
+    {
+        
+        $complaints = complaint::get();
+        return view('admin.totalComplaints',[
+            'complaints' => $complaints
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
