@@ -64,6 +64,16 @@
                 <div class="form-group">
                     <label for="program">Program</label>
                     <select class="form-control" name="program" id="program">
+                            <option value="BS">BS</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="programs">Program Section</label>
+                    <select class="form-control" name="programs" id="programs">
                         <optgroup label="BS">
                             <option value="BS Computer">Computer</option>
                             <option value="BS English Islmic">English Islmic</option>

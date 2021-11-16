@@ -48,6 +48,7 @@ class AdminController extends Controller
         return view('admin.dashboard',[
             'complaints' => $complaints,
             'students' => $students,
+            'reply' => reply::get(),
         ]);
     }
 
@@ -148,6 +149,7 @@ class AdminController extends Controller
         $task->mobile = $request->input('mobile');
         $task->address = $request->input('address');
         $task->program = $request->input('program');
+        $task->programs = $request->input('programs');
         $task->dob = $request->input('dob');
         $task->status = 0;
         $task->save();

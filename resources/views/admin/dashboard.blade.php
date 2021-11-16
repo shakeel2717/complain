@@ -76,8 +76,8 @@
                             <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                         </div>
                         <div class="col-10">
-                            <h2 class="card-title">X</h2>
-                            <h4 class="card-title">Level Complaints</h4>
+                            <h2 class="card-title">{{$complaints[0]->student->where('program','BS')->count() }}</h2>
+                            <h4 class="card-title">BS Level Complaints</h4>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                             <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                         </div>
                         <div class="col-10">
-                            <h2 class="card-title">{{ $students->where('status',1)->count() }}</h2>
+                            <h2 class="card-title">{{$students->where('status',1)->count()}}</h2>
                             <h4 class="card-title">Register Student</h4>
                         </div>
                     </div>
@@ -106,8 +106,8 @@
                             <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                         </div>
                         <div class="col-10">
-                            <h2 class="card-title">X</h2>
-                            <h4 class="card-title">Dep Wise Students</h4>
+                            <h2 class="card-title">{{$complaints[0]->student->where('program','Other')->count() }}</h2>
+                            <h4 class="card-title">Other Level Complaints</h4>
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                             <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                         </div>
                         <div class="col-10">
-                            <h2 class="card-title">X</h2>
+                            <h2 class="card-title">{{$reply->where('student_id',1)->count()}}</h2>
                             <h4 class="card-title">Total Replies</h4>
                         </div>
                     </div>

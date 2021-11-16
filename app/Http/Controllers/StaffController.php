@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\complaint;
+use App\Models\reply;
 use App\Models\staff;
 use App\Models\student;
 use Illuminate\Http\Request;
@@ -39,6 +40,7 @@ class StaffController extends Controller
         return view('staff.dashboard', [
             'complaints' => $complaints,
             'students' => $students,
+            'reply' => reply::get(),
         ]);
     }
 
