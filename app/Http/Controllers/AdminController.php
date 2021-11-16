@@ -97,10 +97,9 @@ class AdminController extends Controller
 
     public function compalinReplyReq(Request $request)
     {
-
-
         $task = new reply();
         $task->complaint_id = $request->input('complaint_id');
+        $task->student_id = $request->input('student_id');
         $task->message = $request->input('reply');
         $task->status = "Replied";
         $task->save();

@@ -17,6 +17,7 @@
                                 <label for="reply">Reply Message</label>
                                 <textarea name="reply" id="reply" cols="30" rows="10" class="form-control"></textarea>
                                 <input type="hidden" name="complaint_id" value="{{ $complaint->id }}">
+                                <input type="hidden" name="student_id" value="{{ $complaint->student_id }}">
                             </div>
                         </div>
                         <div class="col-12">

@@ -97,7 +97,7 @@
                             <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                         </div>
                         <div class="col-10">
-                            <h2 class="card-title">X</h2>
+                            <h2 class="card-title">{{$reply->where('student_id',1)->count()}}</h2>
                             <h4 class="card-title">Total Replies</h4>
                         </div>
                     </div>
