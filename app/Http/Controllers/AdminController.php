@@ -112,6 +112,22 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+
+    public function officer()
+    {
+        return view('admin.officer',[
+            'complaints' => complaint::where('subject','Officer')->get(),
+        ]);
+    }
+
+
+    public function teacher()
+    {
+        return view('admin.teacher',[
+            'complaints' => complaint::where('subject','Teacher')->get(),
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

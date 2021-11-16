@@ -28,11 +28,11 @@
     <div class="sidebar">
         <ul>
             <li><a href="{{ route('admin.index') }}">Dashboard</a></li>
-            <li><a href="#">Officers wise</a></li>
+            <li><a href="{{ route('admin.officer') }}">Officers wise</a></li>
             <li><a href="{{ route('admin.createStudent') }}">Create Student</a></li>
-            <li><a href="#">Teacher Wise</a></li>
+            <li><a href="{{ route('admin.teacher') }}">Teacher Wise</a></li>
             <li><a href="{{route('admin.totalComplaints')}}">Total Complaints</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="{{ route('admin.login') }}">Logout</a></li>
         </ul>
     </div>
     @yield('content')

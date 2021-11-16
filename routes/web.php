@@ -31,5 +31,7 @@ Route::get('/admin/totalComplaints/delete/{id}',[AdminController::class,'totalCo
 Route::get('/admin/totalComplaints/fixed/{id}',[AdminController::class,'totalComplaintsFix'])->name('admin.totalComplaintsFix');
 Route::get('/admin/totalComplaints/reply/{id}',[AdminController::class,'compalinReply'])->name('admin.compalinReply');
 Route::post('/admin/totalComplaints/reply',[AdminController::class,'compalinReplyReq'])->name('admin.compalinReplyReq');
+Route::get('/admin/officer',[AdminController::class,'officer'])->name('admin.officer');
+Route::get('/admin/teacher',[AdminController::class,'teacher'])->name('admin.teacher');
 Route::resource('admin', AdminController::class);
 Route::resource('/complaint',ComplaintController::class);
