@@ -27,6 +27,7 @@
                             <label for="subject">Subject</label>
                             <select name="subject" id="subject" class="form-control">
                                 <option value="Lab">Lab</option>
+                                <option value="Officer">Officer</option>
                                 <option value="Teacher">Teacher</option>
                                 <option value="Class Room">Class Room</option>
                                 <option value="Bus">Bus</option>

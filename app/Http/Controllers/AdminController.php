@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\admin;
+use App\Models\complaint;
 use App\Models\student;
 use Illuminate\Http\Request;
 
@@ -41,9 +42,11 @@ class AdminController extends Controller
 
     public function index()
     {
-        $admin = admin::all();
+        $complaints = complaint::get();
+        $students = student::get();
         return view('admin.dashboard',[
-            'admins' => $admin,
+            'complaints' => $complaints,
+            'students' => $students,
         ]);
     }
 

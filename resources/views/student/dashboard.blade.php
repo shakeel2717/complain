@@ -22,7 +22,7 @@
                             <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                         </div>
                         <div class="col-10">
-                            <h2 class="card-title">12</h2>
+                            <h2 class="card-title">{{$complaints->count()}}</h2>
                             <h4 class="card-title">Total Complaints</h4>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                             <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                         </div>
                         <div class="col-10">
-                            <h2 class="card-title">12</h2>
+                            <h2 class="card-title">{{$complaints->where('status','Rejected')->count()}}</h2>
                             <h4 class="card-title">Rejected Complaints</h4>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                             <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                         </div>
                         <div class="col-10">
-                            <h2 class="card-title">12</h2>
+                            <h2 class="card-title">{{$complaints->where('status','Completed')->count()}}</h2>
                             <h4 class="card-title">Completed Complaints</h4>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                         </div>
                         <div class="col-10">
-                            <h2 class="card-title">12</h2>
+                            <h2 class="card-title">{{$complaints->where('status','Deleted')->count()}}</h2>
                             <h4 class="card-title">Deleted Complaints</h4>
                         </div>
                     </div>
@@ -82,8 +82,8 @@
                             <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                         </div>
                         <div class="col-10">
-                            <h2 class="card-title">12</h2>
-                            <h4 class="card-title">Complaints Details</h4>
+                            <h2 class="card-title">{{$complaints->where('status','Reply')->count()}}</h2>
+                            <h4 class="card-title">Answered Complaints</h4>
                         </div>
                     </div>
                 </div>

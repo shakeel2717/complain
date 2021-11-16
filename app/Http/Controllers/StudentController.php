@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\complaint;
 use App\Models\student;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,9 @@ class StudentController extends Controller
 
     public function studentDashboard()
     {
-        return view('student.dashboard');
+        return view('student.dashboard',[
+            'complaints' => complaint::where('student_id',1)->get(),
+        ]);
     }
 
 
