@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\admin;
 use App\Models\complaint;
+use App\Models\reply;
 use App\Models\student;
 use Illuminate\Http\Request;
 
@@ -83,6 +84,32 @@ class AdminController extends Controller
         return view('admin.totalComplaints',[
             'complaints' => $complaints
         ]);
+    }
+    
+    
+    public function compalinReply($id)
+    {
+        $complaint = complaint::find($id);
+        return view('admin.compalinReply',[
+            'complaint' => $complaint
+        ]);
+    }
+
+    public function compalinReplyReq(Request $request)
+    {
+
+
+        $task = new reply();
+        $task->complaint_id = $request->input('complaint_id');
+        $task->message = $request->input('reply');
+        $task->status = "Replied";
+        $task->save();
+
+        // chaning the status of this Complaint
+        $task = complaint::find($request->input('complaint_id'));
+        $task->status = "Replied";
+        $task->save();
+        return redirect()->back();
     }
 
     /**

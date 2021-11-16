@@ -29,7 +29,7 @@
                             <td>{{ $complain->message }}</td>
                             <td>{{ $complain->status }}</td>
                             <td><a href="{{ route('admin.totalComplaintsFix',['id' => $complain->id]) }}" class="btn btn-success btn-sm">Fixed</a></td>
-                            <td><a href="{{ route('complaint.show',['complaint' => $complain->id]) }}" class="btn btn-primary btn-sm">Reply</a></td>
+                            <td><a href="{{ route('admin.compalinReply',['id' => $complain->id]) }}" class="btn btn-primary btn-sm">Reply</a></td>
                             <td><a href="{{ route('admin.totalComplaintsRej',['id' => $complain->id]) }}" class="btn btn-danger btn-sm">Reject</a></td>
                             <td><a href="{{ route('admin.totalComplaintsDel',['id' => $complain->id]) }}" class="btn btn-danger btn-sm">Delete</a></td>
                         </tr>

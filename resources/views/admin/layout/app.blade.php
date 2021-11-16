@@ -12,7 +12,7 @@
     <!-- Font Awsome ka Link -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <!-- Hamri CSS ki File -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 
 <body style="background-image: none;">

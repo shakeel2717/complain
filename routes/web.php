@@ -27,6 +27,7 @@ Route::get('/admin/totalComplaints',[AdminController::class,'totalComplaints'])-
 Route::get('/admin/totalComplaints/reject/{id}',[AdminController::class,'totalComplaintsRej'])->name('admin.totalComplaintsRej');
 Route::get('/admin/totalComplaints/delete/{id}',[AdminController::class,'totalComplaintsDel'])->name('admin.totalComplaintsDel');
 Route::get('/admin/totalComplaints/fixed/{id}',[AdminController::class,'totalComplaintsFix'])->name('admin.totalComplaintsFix');
-
+Route::get('/admin/totalComplaints/reply/{id}',[AdminController::class,'compalinReply'])->name('admin.compalinReply');
+Route::post('/admin/totalComplaints/reply',[AdminController::class,'compalinReplyReq'])->name('admin.compalinReplyReq');
 Route::resource('admin', AdminController::class);
 Route::resource('/complaint',ComplaintController::class);

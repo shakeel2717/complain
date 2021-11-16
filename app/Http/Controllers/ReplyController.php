@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\complaint;
 use App\Models\reply;
 use Illuminate\Http\Request;
 
-class ComplaintController extends Controller
+class ReplyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,9 @@ class ComplaintController extends Controller
      */
     public function index()
     {
-        $complaint = complaint::where('student_id',1)->get();
-        return view('student.complaint.index',[
-            'complaints' => $complaint,
+        $reply = reply::all();
+        return view('reply.index',[
+            'replys' => $reply,
         ]);
     }
 
@@ -28,7 +27,7 @@ class ComplaintController extends Controller
      */
     public function create()
     {
-        return view('student.complaint.create');
+        return view('reply.create');
     }
 
     /**
@@ -39,37 +38,36 @@ class ComplaintController extends Controller
      */
     public function store(Request $request)
     {
-        $task = new complaint();
-        $task->student_id = 1;
-        $task->to = $request->input('to');
-        $task->subject = $request->input('subject');
-        $task->message = $request->input('message');
-        $task->status = "Open";
+        $validated = $request->validate([
+        // 'test' => 'required|min:4|max:30|exists:admins',
+        ]);
+        $task = new reply();
+        $task->test = $validated['test'];
         $task->save();
-        return redirect()->back()->with('message', 'Task Completed Successfully');
+        // return redirect()->back()->withErrors('Wrong Password, Please try again');
+        // return redirect()->route('pin.index')->with('message', 'Task Completed Successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\complaint  $complaint
+     * @param  \App\Models\reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function show(complaint $complaint)
+    public function show(reply $reply)
     {
-        $replies = reply::where('complaint_id',$complaint->id)->latest()->get();
-        return view('student.complaint.show',[
-            'replies' => $replies,
+        return view('reply.index',[
+            'reply' => $reply,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\complaint  $complaint
+     * @param  \App\Models\reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function edit(complaint $complaint)
+    public function edit(reply $reply)
     {
         //
     }
@@ -78,10 +76,10 @@ class ComplaintController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\complaint  $complaint
+     * @param  \App\Models\reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, complaint $complaint)
+    public function update(Request $request, reply $reply)
     {
         //
     }
@@ -89,12 +87,12 @@ class ComplaintController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\complaint  $complaint
+     * @param  \App\Models\reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function destroy(complaint $complaint)
+    public function destroy(reply $reply)
     {
-        $task = complaint::find($complaint->id);
+        $task = reply::find($reply->id);
         $task->delete();
         // return redirect()->route('pin.index')->with('message', 'Task Completed Successfully');
     }
