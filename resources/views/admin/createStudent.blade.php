@@ -62,6 +62,27 @@
             </div>
             <div class="col-6">
                 <div class="form-group">
+                    <label for="program">Program</label>
+                    <select class="form-control" name="program" id="program">
+                        <optgroup label="BS">
+                            <option value="BS Computer">Computer</option>
+                            <option value="BS English Islmic">English Islmic</option>
+                            <option value="BS Botony">Botony</option>
+                            <option value="BS Arts">Arts</option>
+                            <option value="BS Generate Science">Generate Science</option>
+                            <option value="BS Pre-Medical">Pre-Medical</option>
+                            <option value="BS Pre-Engineering">Pre-Engineering</option>
+                        </optgroup>
+                        <optgroup label="Other">
+                            <option value="Other First year">First year</option>
+                            <option value="Other Second Year">Second Year</option>
+                        </optgroup>
+                    </select>
+                    
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
                     <label for="dob">Date of Birth</label>
                     <input type="date" name="dob" id="dob" class="form-control"
                         placeholder="Enter your Date of Birth">

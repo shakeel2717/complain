@@ -21,6 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('mobile');
+            $table->string('program');
             $table->string('address');
             $table->string('dob');
             $table->boolean('status');

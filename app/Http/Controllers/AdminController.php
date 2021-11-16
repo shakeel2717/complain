@@ -148,6 +148,7 @@ class AdminController extends Controller
         $task->email = $request->input('email');
         $task->mobile = $request->input('mobile');
         $task->address = $request->input('address');
+        $task->program = $request->input('program');
         $task->dob = $request->input('dob');
         $task->status = 0;
         $task->save();
