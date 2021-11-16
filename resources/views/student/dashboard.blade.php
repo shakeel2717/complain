@@ -9,7 +9,7 @@
     </div>
     <div class="row">
         <div class="col-12 text-center">
-            <a href="#" class="btn btn-outline-dark btn-lg"> <i class="fas fa-plus-circle"></i> Create Complaint</a>
+            <a href="{{ route('complaint.create') }}" class="btn btn-outline-dark btn-lg"> <i class="fas fa-plus-circle"></i> Create Complaint</a>
         </div>
     </div>
     <hr>

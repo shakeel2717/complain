@@ -27,7 +27,7 @@
 
     <div class="sidebar">
         <ul>
-            <li><a href="#">Create Complaints</a></li>
+            <li><a href="{{ route('complaint.create') }}">Create Complaints</a></li>
             <li><a href="#">My Complaints</a></li>
             <li><a href="#">Complaints Details</a></li>
             <li><a href="#">Logout</a></li>

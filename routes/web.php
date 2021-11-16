@@ -4,7 +4,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\ComplaintController;
 
 Route::view('/','welcome');
 Route::get('/student/login',[StudentController::class,'login'])->name('student.login');
@@ -22,5 +22,6 @@ Route::post('/admin/loginReq',[AdminController::class,'loginReq'])->name('admin.
 Route::get('/admin/register',[AdminController::class,'register'])->name('admin.register');
 Route::get('/admin/createStudent',[AdminController::class,'createStudent'])->name('admin.createStudent');
 Route::post('/admin/createStudent',[AdminController::class,'studentStore'])->name('admin.studentStore');
+Route::resource('/complaint',ComplaintController::class);
 
 Route::resource('admin', AdminController::class);
