@@ -27,8 +27,9 @@
 
     <div class="sidebar">
         <ul>
+            <li><a href="{{ route('student.dashboard') }}">Dashboard</a></li>
             <li><a href="{{ route('complaint.create') }}">Create Complaints</a></li>
-            <li><a href="#">My Complaints</a></li>
+            <li><a href="{{ route('complaint.index') }}">My Complaints</a></li>
             <li><a href="#">Complaints Details</a></li>
             <li><a href="#">Logout</a></li>
         </ul>

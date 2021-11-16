@@ -14,8 +14,8 @@ class ComplaintController extends Controller
      */
     public function index()
     {
-        $complaint = complaint::all();
-        return view('complaint.index',[
+        $complaint = complaint::where('student_id',1)->get();
+        return view('student.complaint.index',[
             'complaints' => $complaint,
         ]);
     }
