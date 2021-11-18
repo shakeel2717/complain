@@ -48,6 +48,8 @@ Route::get('/admin/students', [AdminController::class, 'students'])->name('admin
 Route::get('/admin/staffApprove/staffs', [AdminController::class, 'staffs'])->name('admin.staffs');
 Route::get('/admin/staffApprove/{id}', [AdminController::class, 'staffApprove'])->name('admin.staffApprove');
 Route::get('/admin/staffStop/{id}', [AdminController::class, 'staffStop'])->name('admin.staffStop');
+Route::get('/admin/admin.staffNotification', [AdminController::class, 'adminStaffNotification'])->name('admin.staffNotification');
+
 Route::get('/admin/notification', [NotificationController::class, 'index'])->name('admin.notification');
 Route::post('/admin/notificationReq', [NotificationController::class, 'adminNotificationReq'])->name('admin.notificationReq');
 Route::resource('admin', AdminController::class);

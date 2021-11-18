@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\admin;
 use App\Models\complaint;
+use App\Models\notification;
 use App\Models\reply;
 use App\Models\staff;
 use App\Models\student;
@@ -43,6 +44,14 @@ class AdminController extends Controller
         $task->save();
         return redirect()->back()->with('message','Task Completed Successfully');
 
+    }
+
+
+    public function adminStaffNotification()
+    {
+        return view('admin.adminStaffNotification',[
+            'notifications' => notification::where('to','Admin')->get(),
+        ]);
     }
 
     public function staffStop($id)

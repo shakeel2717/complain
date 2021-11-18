@@ -31,6 +31,7 @@
             <li><a href="{{ route('admin.students') }}">All Students</a></li>
             <li><a href="{{ route('admin.staffs') }}">All Staff Member</a></li>
             <li><a href="{{ route('admin.notification') }}">Write Message</a></li>
+            <li><a href="{{ route('admin.staffNotification') }}">Staff Messages</a></li>
             <li><a href="{{ route('admin.officer') }}">Officers wise</a></li>
             <li><a href="{{ route('admin.createStudent') }}">Create Student</a></li>
             <li><a href="{{ route('admin.teacher') }}">Teacher Wise</a></li>
