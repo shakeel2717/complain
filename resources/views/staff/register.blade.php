@@ -78,6 +78,9 @@
                                     <a href="{{ route('staff.login') }}" class="btn btn-dark w-50 m-2 hover-yellow">login</a>
                                 </div>
                             </div>
+                            <div class="col-12">
+                                <p>Go Back to Home <a href="{{ route('home') }}">Home</a></p>
+                            </div>
     
                         </div>
                     </form>

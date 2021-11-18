@@ -20,12 +20,36 @@ class StudentController extends Controller
         return view('student.login');
     }
 
+
+    public function passwordReq(Request $request)
+    {
+        $validated = $request->validate([
+            'password' => 'required',
+            'npassword' => 'required|confirmed',
+        ]);
+        // checking if this password is equal
+        $query = student::find(session('student')->id);
+        if ($validated['password'] != $query->password) {
+            return redirect()->back()->withErrors('Wrong Password, Please try again');
+        }
+        $task = student::find(session('student')->id);
+        $task->password = $validated['npassword'];
+        $task->save();
+        return redirect()->back()->with('message', 'Password Updated Successfully');
+    }
+
+    public function studentPassword()
+    {
+        return view('student.studentPassword');
+    }
+
     public function loginReq(Request $request)
     {
-        $query = student::where('email',$request->input('email'))->where('password',$request->input('password'))->where('status',1)->first();
-        if($query == "") {
+        $query = student::where('email', $request->input('email'))->where('password', $request->input('password'))->where('status', 1)->first();
+        if ($query == "") {
             return "Login Failed";
         }
+        session(['student' => $query]);
         return redirect()->route('student.dashboard');
     }
 
@@ -36,8 +60,8 @@ class StudentController extends Controller
 
     public function studentDashboard()
     {
-        return view('student.dashboard',[
-            'complaints' => complaint::where('student_id',1)->get(),
+        return view('student.dashboard', [
+            'complaints' => complaint::where('student_id', 1)->get(),
             'reply' => reply::get(),
         ]);
     }
@@ -46,7 +70,7 @@ class StudentController extends Controller
     public function index()
     {
         $student = student::all();
-        return view('student.index',[
+        return view('student.index', [
             'students' => $student,
         ]);
     }
@@ -70,8 +94,8 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         // query 
-        $query = student::where('fname',$request->input('fname'))->where('lname',$request->input('lname'))->where('email',$request->input('email'))->first();
-        if($query == "") {
+        $query = student::where('fname', $request->input('fname'))->where('lname', $request->input('lname'))->where('email', $request->input('email'))->first();
+        if ($query == "") {
             return "No Record Found";
         }
         $query->status = 1;
@@ -88,7 +112,7 @@ class StudentController extends Controller
      */
     public function show(student $student)
     {
-        return view('student.index',[
+        return view('student.index', [
             'student' => $student,
         ]);
     }

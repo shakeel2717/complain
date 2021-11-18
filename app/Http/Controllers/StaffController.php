@@ -23,6 +23,36 @@ class StaffController extends Controller
         return view('staff.login');
     }
 
+    public function students()
+    {
+        return view('staff.students',[
+            'students' => student::all(),
+        ]);
+    }
+
+
+    public function passwordReq(Request $request)
+    {
+        $validated = $request->validate([
+            'password' => 'required',
+            'npassword' => 'required|confirmed',
+        ]);
+        // checking if this password is equal
+        $query = staff::find(session('student')->id);
+        if ($validated['password'] != $query->password) {
+            return redirect()->back()->withErrors('Wrong Password, Please try again');
+        }
+        $task = staff::find(session('staff')->id);
+        $task->password = $validated['npassword'];
+        $task->save();
+        return redirect()->back()->with('message', 'Password Updated Successfully');
+    }
+
+    public function staffPassword()
+    {
+        return view('staff.staffPassword');
+    }
+
 
     public function loginReq(Request $request)
     {
@@ -30,6 +60,10 @@ class StaffController extends Controller
         if ($query == "") {
             return "Login Failed";
         }
+        if ($query->status == "No") {
+            return redirect()->back()->withErrors('Account Status in Pending Status, Only Admin can Approve Login Request');
+        }
+        session(['staff' => $query]);
         return redirect()->route('staff.dashboard');
     }
 

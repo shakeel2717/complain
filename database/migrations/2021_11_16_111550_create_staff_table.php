@@ -19,6 +19,7 @@ class CreateStaffTable extends Migration
             $table->string('lname');
             $table->string('username');
             $table->string('email');
+            $table->string('status')->default("No");
             $table->string('password');
             $table->string('mobile');
             $table->string('address');

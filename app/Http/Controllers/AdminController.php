@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\admin;
 use App\Models\complaint;
 use App\Models\reply;
+use App\Models\staff;
 use App\Models\student;
 use Illuminate\Http\Request;
 
@@ -35,6 +36,24 @@ class AdminController extends Controller
         return view('admin.register');
     }
 
+    public function staffApprove($id)
+    {
+        $task = staff::find($id);
+        $task->status = "Yes";
+        $task->save();
+        return redirect()->back()->with('message','Task Completed Successfully');
+
+    }
+
+    public function staffStop($id)
+    {
+        $task = staff::find($id);
+        $task->status = "No";
+        $task->save();
+        return redirect()->back()->with('message','Task Completed Successfully');
+
+    }
+
 
     public function createStudent()
     {
@@ -57,7 +76,21 @@ class AdminController extends Controller
         $task = complaint::find($id);
         $task->status = "Rejected";
         $task->save();
-        return redirect()->back();
+        return redirect()->back()->with('message','Task Completed Successfully');
+    }
+
+    public function students()
+    {
+        return view('admin.students',[
+            'students' => student::all(),
+        ]);
+    }
+
+    public function staffs()
+    {
+        return view('admin.staffs',[
+            'staffs' => staff::all(),
+        ]);
     }
 
 
@@ -66,7 +99,7 @@ class AdminController extends Controller
         $task = complaint::find($id);
         $task->status = "Deleted";
         $task->save();
-        return redirect()->back();
+        return redirect()->back()->with('message','Task Completed Successfully');
     }
 
     public function totalComplaintsFix($id)
@@ -74,7 +107,7 @@ class AdminController extends Controller
         $task = complaint::find($id);
         $task->status = "Completed";
         $task->save();
-        return redirect()->back();
+        return redirect()->back()->with('message','Task Completed Successfully');
     }
 
     

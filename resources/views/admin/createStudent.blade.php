@@ -8,6 +8,7 @@
         </div>
     </div>
     <h3 class="card-title text-primary text-center">Registeration Student account</h3>
+    <x-alert />
     <form action="{{ route('admin.studentStore') }}" method="POST">
         @csrf
         <div class="row">

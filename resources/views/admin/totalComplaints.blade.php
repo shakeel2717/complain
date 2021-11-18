@@ -9,6 +9,7 @@
         </div>
         <div class="col-md-8 mx-auto">
             <h3 class="card-title text-primary text-center">All Complaint</h3>
+            <x-alert />
             <table class="table">
                 <thead>
                     <tr>

@@ -9,6 +9,7 @@
         </div>
         <div class="col-md-4 mx-auto">
             <h3 class="card-title text-primary text-center">New Complaint</h3>
+            <x-alert />
             <form action="{{ route('complaint.store') }}" method="POST">
                 @csrf
                 <div class="row">

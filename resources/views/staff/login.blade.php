@@ -21,6 +21,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title text-primary text-center">Login to your Staff account</h3>
+                    <x-alert />
                     <form action="{{ route('staff.loginReq') }}" method="POST">
                         @csrf
                         <div class="row">
@@ -41,6 +42,9 @@
                                     <a href="{{ route('staff.register') }}" class="btn btn-outline-danger w-50 m-2">Register</a>
                                     <input type="submit" class="btn btn-dark w-50 m-2 hover-yellow">
                                 </div>
+                            </div>
+                            <div class="col-12">
+                                <p>Go Back to Home <a href="{{ route('home') }}">Home</a></p>
                             </div>
                         </div>
                     </form>

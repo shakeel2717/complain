@@ -6,11 +6,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ComplaintController;
 
-Route::view('/','welcome');
+Route::view('/','welcome')->name('home');
 Route::get('/student/login',[StudentController::class,'login'])->name('student.login');
 Route::post('/student/loginReq',[StudentController::class,'loginReq'])->name('student.loginReq');
 Route::get('/student/register',[StudentController::class,'register'])->name('student.register');
 Route::get('/student/dashboard',[StudentController::class,'studentDashboard'])->name('student.dashboard');
+Route::get('/student/password',[StudentController::class,'studentPassword'])->name('student.password');
+Route::post('/student/password',[StudentController::class,'passwordReq'])->name('student.passwordReq');
 
 Route::resource('/student',StudentController::class);
 Route::get('/staff/login',[StaffController::class,'login'])->name('staff.login');
@@ -19,6 +21,9 @@ Route::get('/staff/register',[StaffController::class,'register'])->name('staff.r
 Route::get('/staff/dashboard',[StaffController::class,'dashboard'])->name('staff.dashboard');
 Route::get('/staff/teacher',[StaffController::class,'teacher'])->name('staff.teacher');
 Route::get('/staff/student',[StaffController::class,'student'])->name('staff.student');
+Route::get('/staff/students',[StaffController::class,'students'])->name('staff.students');
+Route::get('/staff/password',[StaffController::class,'staffPassword'])->name('staff.password');
+Route::post('/staff/password',[StaffController::class,'passwordReq'])->name('staff.passwordReq');
 Route::resource('/staff',StaffController::class);
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 Route::post('/admin/loginReq',[AdminController::class,'loginReq'])->name('admin.loginReq');
@@ -33,5 +38,11 @@ Route::get('/admin/totalComplaints/reply/{id}',[AdminController::class,'compalin
 Route::post('/admin/totalComplaints/reply',[AdminController::class,'compalinReplyReq'])->name('admin.compalinReplyReq');
 Route::get('/admin/officer',[AdminController::class,'officer'])->name('admin.officer');
 Route::get('/admin/teacher',[AdminController::class,'teacher'])->name('admin.teacher');
+Route::get('/admin/students',[AdminController::class,'students'])->name('admin.students');
+Route::get('/admin/staffApprove/staffs',[AdminController::class,'staffs'])->name('admin.staffs');
+Route::get('/admin/staffApprove/{id}',[AdminController::class,'staffApprove'])->name('admin.staffApprove');
+Route::get('/admin/staffStop/{id}',[AdminController::class,'staffStop'])->name('admin.staffStop');
+
+
 Route::resource('admin', AdminController::class);
 Route::resource('/complaint',ComplaintController::class);

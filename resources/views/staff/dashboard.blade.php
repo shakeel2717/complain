@@ -76,8 +76,8 @@
                                 <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                             </div>
                             <div class="col-10">
-                                <h2 class="card-title">{{ (count($complaints) > 0 ? $complaints[0]->student->where('program','BS')->count() : 0 )}}</h2>
-                                <h4 class="card-title">BS Level Complaints</h4>
+                                <h2 class="card-title">{{ DB::table('students')->where('program','BS')->count()}}</h2>
+                                <h4 class="card-title">BS Level Students</h4>
                             </div>
                         </div>
                     </div>
@@ -106,8 +106,8 @@
                                 <i class="fas fa-exclamation-circle" style="font-size: 45px;"></i>
                             </div>
                             <div class="col-10">
-                                <h2 class="card-title">{{ (count($complaints) > 0 ? $complaints[0]->student->where('program','Other')->count() : 0 )}}</h2>
-                                <h4 class="card-title">Other Level Complaints</h4>
+                                <h2 class="card-title">{{ DB::table('students')->where('program','Other')->count()}} </h2>
+                                <h4 class="card-title">Other Level Students</h4>
                             </div>
                         </div>
                     </div>
