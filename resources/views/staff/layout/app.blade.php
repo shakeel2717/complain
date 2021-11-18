@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,11 +27,12 @@
     <div class="sidebar">
         <ul>
             <li><a href="{{ route('staff.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('staff.notification') }}">Admin Notification</a></li>
             <li><a href="{{ route('staff.students') }}">All Students</a></li>
             <li><a href="{{ route('staff.password') }}">Change Password</a></li>
             <li><a href="{{ route('staff.teacher') }}">Teacher wise</a></li>
             <li><a href="{{ route('staff.student') }}">Student wise</a></li>
-            <li><a href="{{route('staff.login')}}">Logout</a></li>
+            <li><a href="{{ route('staff.login') }}">Logout</a></li>
         </ul>
     </div>
     @yield('content')

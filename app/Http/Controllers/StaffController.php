@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\complaint;
+use App\Models\notification;
 use App\Models\reply;
 use App\Models\staff;
 use App\Models\student;
@@ -27,6 +28,14 @@ class StaffController extends Controller
     {
         return view('staff.students',[
             'students' => student::all(),
+        ]);
+    }
+
+
+    public function notification()
+    {
+        return view('staff.notification',[
+            'notifications' => notification::all(),
         ]);
     }
 
