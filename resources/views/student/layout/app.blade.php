@@ -28,6 +28,7 @@
     <div class="sidebar">
         <ul>
             <li><a href="{{ route('student.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('student.notification') }}">Admin Messages</a></li>
             <li><a href="{{ route('complaint.create') }}">Create Complaints</a></li>
             <li><a href="{{ route('complaint.index') }}">My Complaints</a></li>
             <li><a href="{{ route('student.password') }}">Change Password</a></li>

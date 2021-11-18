@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\complaint;
+use App\Models\notification;
 use App\Models\reply;
 use App\Models\student;
 use Illuminate\Http\Request;
@@ -18,6 +19,14 @@ class StudentController extends Controller
     public function login()
     {
         return view('student.login');
+    }
+
+
+    public function notification()
+    {
+        return view('student.notification',[
+            'notifications' => notification::where('to','Student')->get(),
+        ]);
     }
 
 

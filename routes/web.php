@@ -14,6 +14,7 @@ Route::get('/student/register', [StudentController::class, 'register'])->name('s
 Route::get('/student/dashboard', [StudentController::class, 'studentDashboard'])->name('student.dashboard');
 Route::get('/student/password', [StudentController::class, 'studentPassword'])->name('student.password');
 Route::post('/student/password', [StudentController::class, 'passwordReq'])->name('student.passwordReq');
+Route::get('/student/notification', [StudentController::class, 'notification'])->name('student.notification');
 
 Route::resource('/student', StudentController::class);
 Route::get('/staff/login', [StaffController::class, 'login'])->name('staff.login');
@@ -26,6 +27,9 @@ Route::get('/staff/students', [StaffController::class, 'students'])->name('staff
 Route::get('/staff/password', [StaffController::class, 'staffPassword'])->name('staff.password');
 Route::post('/staff/password', [StaffController::class, 'passwordReq'])->name('staff.passwordReq');
 Route::get('/staff/notification', [StaffController::class, 'notification'])->name('staff.notification');
+Route::get('/staff/Newnotification', [StaffController::class, 'Newnotification'])->name('staff.Newnotification');
+Route::post('/staff/notificationReq', [StaffController::class, 'notificationReq'])->name('staff.notificationReq');
+
 Route::resource('/staff', StaffController::class);
 Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
 Route::post('/admin/loginReq', [AdminController::class, 'loginReq'])->name('admin.loginReq');
@@ -46,8 +50,5 @@ Route::get('/admin/staffApprove/{id}', [AdminController::class, 'staffApprove'])
 Route::get('/admin/staffStop/{id}', [AdminController::class, 'staffStop'])->name('admin.staffStop');
 Route::get('/admin/notification', [NotificationController::class, 'index'])->name('admin.notification');
 Route::post('/admin/notificationReq', [NotificationController::class, 'adminNotificationReq'])->name('admin.notificationReq');
-
-
-
 Route::resource('admin', AdminController::class);
 Route::resource('/complaint', ComplaintController::class);

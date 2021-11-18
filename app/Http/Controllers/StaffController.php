@@ -32,11 +32,28 @@ class StaffController extends Controller
     }
 
 
+    public function Newnotification()
+    {
+        return view('staff.Newnotification');
+    }
+
+
     public function notification()
     {
         return view('staff.notification',[
-            'notifications' => notification::all(),
+            'notifications' => notification::where('to','Staff')->get(),
         ]);
+    }
+
+
+    public function notificationReq(Request $request)
+    {
+        $task = new notification();
+        $task->to = $request->input('to');
+        $task->message = $request->input('reply');
+        $task->from = "Staff";
+        $task->save();
+        return redirect()->back()->with('message','Task Completed Successfully');
     }
 
 

@@ -1,9 +1,9 @@
-@extends('staff.layout.app')
+@extends('admin.layout.app')
 @section('content')
     <div class="content">
         <div class="row mt-2">
             <div class="col-12">
-                <h2>Staff Dashboard</h2>
+                <h2>Student Dashboard</h2>
                 <hr>
             </div>
         </div>
